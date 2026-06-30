@@ -1,6 +1,9 @@
-bentoml==1.0.10
-joblib==1.2.0
-pip-chill==1.0.1
+bentoml==1.4.39
+joblib==1.5.3
+pip-chill==1.0.5
 torchvision==0.27.1
+fastapi==0.138.0
 tqdm==4.64.1
-wincertstore==0.2 
+wincertstore==0.2
+
+# .\.venv\Scripts\Activate.ps1

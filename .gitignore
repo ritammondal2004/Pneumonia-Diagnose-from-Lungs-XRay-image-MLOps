@@ -1,0 +1,14 @@
+
+.env
+
+
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+
+/data/
+
+# Processed outputs
+*.log
