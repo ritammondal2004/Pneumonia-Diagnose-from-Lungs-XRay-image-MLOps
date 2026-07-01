@@ -10,7 +10,7 @@ ARTIFACT_DIR: str = "artifacts"
 
 HORIZONTAL_FLIP: bool = True
 
-BUCKET_NAME: str = "lungxray-rtm-2026 "
+BUCKET_NAME: str = "lungxray-rtm-2026"
 
 S3_DATA_FOLDER: str = "data"
 
