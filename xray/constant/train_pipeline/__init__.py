@@ -72,4 +72,15 @@ BENTOML_SERVICE_NAME: str = "xray_service"
 
 BENTOML_ECR_IMAGE: str = "xray_bento_image"
 
-PREDICTION_LABEL: dict = {"0": CLASS_LABEL_1, 1: CLASS_LABEL_2}
+PREDICTION_LABEL: dict = {"0": CLASS_LABEL_1, 1: CLASS_LABEL_2} 
+
+# Your personal AWS Region (e.g., 'us-east-1', 'ap-south-1', etc.)
+REGION_NAME: str = "eu-north-1" 
+
+# Replace with your 12-digit AWS Account ID
+AWS_ACCOUNT_ID: str = "569944376409"  
+ 
+# unique container registry endpoint
+ECR_REGISTRY_URL: str = f"{AWS_ACCOUNT_ID}.dkr.ecr.{REGION_NAME}.amazonaws.com"
+
+           

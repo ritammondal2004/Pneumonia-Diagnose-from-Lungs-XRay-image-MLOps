@@ -92,3 +92,16 @@ class ModelEvaluationConfig:
         }
         self.train_transforms_key : str = TRAIN_TRANSFORMS_KEY
 
+
+
+# Model Pusher Configurations
+@dataclass
+class ModelPusherConfig:
+    def __init__(self): 
+        self.bentoml_model_name: str = BENTOML_MODEL_NAME
+        self.bentoml_service_name: str = BENTOML_SERVICE_NAME
+        self.train_transforms_key: str = TRAIN_TRANSFORMS_KEY
+        self.bentoml_ecr_image: str = BENTOML_ECR_IMAGE 
+
+        self.region_name: str = REGION_NAME
+        self.ecr_repo_url: str = f"{ECR_REGISTRY_URL}/{BENTOML_ECR_IMAGE}"
