@@ -81,17 +81,14 @@ class ModelEvaluationConfig:
 
         self.total: float = 0
         self.total_batch : int = 0
-
+                 
         self.optimizer_params : dict = {
             "lr" : LEARNING_RATE, "weight_decay" : WT_DECAY
-            }
-        
-# Model Pusher Configurations
-@dataclass
-class ModelPusherConfig:
-    def __init__(self):
-        self.bentoml_model_name : str = BENTOML_MODEL_NAME
-        self.bentoml_ecr_image: str = BENTOML_ECR_IMAGE
-        self.bentoml_service_name :str = BENTOML_SERVICE_NAME
+        }
+
+        self.loss_params: dict = {
+            "weights": [3.0, 1.0],
+            "label_smoothing": 0.1,
+        }
         self.train_transforms_key : str = TRAIN_TRANSFORMS_KEY
 

@@ -39,7 +39,7 @@ class ModelTrainer:
             DEVICE
         ) 
         label_smoothing = loss_params.get("label_smoothing", 0.1)
-        return nn.CrossEntropyLoss(weight=weights, label_smoothing=label_smoothing)
+        return nn.CrossEntropyLoss(weight=weights, label_smoothing=label_smoothing) 
 
     def train(self, optimizer: Optimizer) -> None:
         logging.info("Entered the train method of Model trainer class")
