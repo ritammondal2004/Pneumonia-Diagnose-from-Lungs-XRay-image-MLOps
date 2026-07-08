@@ -1,5 +1,8 @@
+import __main__
+from pathlib import Path
+
 from fastapi import FastAPI , UploadFile, File
-from xray.ML.model.arch import RobustXrayNet
+from xray.ML.model.arch import ResBlock, RobustXrayNet
 import torch 
 import torchvision.transforms as transforms
 from PIL import Image 
@@ -9,16 +12,25 @@ app = FastAPI()
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')  
 
-#Initialize model
+setattr(__main__, "ResBlock", ResBlock)
+setattr(__main__, "RobustXrayNet", RobustXrayNet)
+                        
+#Initialize model        
 model = RobustXrayNet().to(device) 
 
-state_dict = torch.load(
-    "XRay_model-v1.pt",
+MODEL_PATH = Path(__file__).resolve().parent / "XRay_model-v1.pt"
+checkpoint = torch.load(
+    MODEL_PATH,
     map_location=device,
-    weights_only=True
+    weights_only=False
 )
 
-model.load_state_dict(state_dict)  
+if isinstance(checkpoint, dict):
+    model.load_state_dict(checkpoint)
+elif hasattr(checkpoint, "state_dict"):
+    model.load_state_dict(checkpoint.state_dict())
+else:
+    model = checkpoint.to(device)
 
 model.eval() 
 
