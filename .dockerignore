@@ -1,0 +1,11 @@
+.venv
+__pycache__
+.git
+.vscode
+.ipynb_checkpoints
+Notebooks
+Data
+*.ipynb
+*.pyc
+*.pyo   
+*.log   
