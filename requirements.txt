@@ -7,8 +7,11 @@ tqdm==4.64.1
 wincertstore==0.2
 python-dotenv==1.0.1
 numpy
-uvicorn==3.13.5
+
+uvicorn[standard]
+python-multipart
 Pillow
 sympy
+
 
 # .\.venv\Scripts\Activate.ps1
