@@ -8,8 +8,8 @@ load_dotenv()
                   
 from xray.exception import XRayException
 from xray.pipeline.TrainPipeline import TrainPipeline
-
-def start_training():  
+                              
+def start_training():      
     try:
         train_pipeline = TrainPipeline()
         train_pipeline.run_pipeline()  

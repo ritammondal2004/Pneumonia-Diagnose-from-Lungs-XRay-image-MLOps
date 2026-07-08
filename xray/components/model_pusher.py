@@ -32,10 +32,10 @@ class ModelPusher:
         logging.info("Entered build_and_push_bento_image method of ModelPusher class")
 
         try:
-            # 1. file is actually named bentomlfile.yaml!
+            # file is actually named bentomlfile.yaml!
             self.run_command("bentoml build -f bentomlfile.yaml", "Building Bento from bentomlfile.yaml")
 
-            # 2. Containerize the Bento into Docker image tagged for ECR
+            # Containerize the Bento into Docker image tagged for ECR
             containerize_command = (
                 f"bentoml containerize {self.model_pusher_config.bentoml_service_name}:latest "
                 f"-t {self.model_pusher_config.ecr_repo_url}:latest"
@@ -58,35 +58,7 @@ class ModelPusher:
         except Exception as e:
             raise XRayException(e, sys) from e
 
-    # def build_and_push_bento_image(self):
-    #     logging.info("Entered build_and_push_bento_image method of ModelPusher class")
-
-    #     try:
-    #         # 1. Build the Bento bundle
-    #         self.run_command("bentoml build -f bentomlfile.yaml", "Building Bento from bentomlfile.yaml")
-
-    #         # 2. Containerize the Bento into Docker image tagged for ECR
-    #         containerize_command = (
-    #             f"bentoml containerize {self.model_pusher_config.bentoml_service_name}:latest "
-    #             f"-t {self.model_pusher_config.ecr_repo_url}:latest -f bentomlfile.yaml"
-    #         )
-    #         self.run_command(containerize_command, "Containerizing Bento service into Docker image")
-
-    #         # 3. Authenticate with AWS ECR
-    #         login_command = (
-    #             f"aws ecr get-login-password --region {self.model_pusher_config.region_name} | "
-    #             f"docker login --username AWS --password-stdin {self.model_pusher_config.ecr_repo_url}"
-    #         )
-    #         self.run_command(login_command, "Authenticating with AWS ECR")
-
-    #         # Push the image to AWS ECR
-    #         push_command = f"docker push {self.model_pusher_config.ecr_repo_url}:latest"
-    #         self.run_command(push_command, "Pushing Docker image to AWS ECR registry")
-
-    #         logging.info("Exited build_and_push_bento_image method of ModelPusher class")
-
-    #     except Exception as e:
-    #         raise XRayException(e, sys) from e
+       
 
     def initiate_model_pusher(self) -> ModelPusherArtifact:
         logging.info("Entered initiate_model_pusher method of ModelPusher class")
