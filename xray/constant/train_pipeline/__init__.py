@@ -66,7 +66,7 @@ LEARNING_RATE : float = 0.0001
 
 WT_DECAY : float = 0.01
 
-BENTOML_MODEL_NAME: str = "xray_model_v1"
+BENTOML_MODEL_NAME: str = "xray_model-v1"
 
 BENTOML_SERVICE_NAME: str = "xray_service"
 

@@ -1,0 +1,6 @@
+{
+  "name": "PneumoVision AI",
+  "description": "Premium AI-powered chest X-ray analysis for instant and accurate pneumonia detection.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
